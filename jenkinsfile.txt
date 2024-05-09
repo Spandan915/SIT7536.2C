@@ -17,11 +17,11 @@ pipeline {
             echo 'Sending email notifications regarding the test Unit and Integration results.'
             // Use Email Extension Plugin to send emails.
             emailext(
-                subject: "Pipeline Notification: ${currentBuild.fullDisplayName}",
+                subject: "unit test notification: ${currentBuild.fullDisplayName}",
                 body: """<p>Stage Completed: ${STAGE_NAME}<br>
                          Status: ${currentBuild.currentResult}</p>""",
                 attachLog: true,
-                recipientProviders: [[$class: 'DevelopersRecipientProvider']]
+                to:"spandandas915@gmail.com"
             )
         }
     }
@@ -42,11 +42,11 @@ pipeline {
             echo 'Sending email notifications regarding the security scan results.'
             // Use Email Extension Plugin to send emails.
             emailext(
-                subject: "Pipeline Notification: ${currentBuild.fullDisplayName}",
+                subject: "security scan notification: ${currentBuild.fullDisplayName}",
                 body: """<p>Stage Completed: ${STAGE_NAME}<br>
                          Status: ${currentBuild.currentResult}</p>""",
                 attachLog: true,
-                recipientProviders: [[$class: 'DevelopersRecipientProvider']]
+              to:"spandandas915@gmail.com"
             )
         }
     }
